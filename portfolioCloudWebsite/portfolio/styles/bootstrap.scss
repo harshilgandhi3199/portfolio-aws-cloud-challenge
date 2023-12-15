@@ -1,0 +1,143 @@
+@import 'vars';
+@import 'node_modules/bootstrap/scss/bootstrap.scss';
+
+/* Bootstrap default style overrides */
+.btn {
+  font-size: 
+  0.9375rem;
+}
+
+.btn-link {
+  font-weight: 700;
+  text-decoration: none;
+}
+
+hr {
+  border-color: $light;
+}
+
+/* Navbar overrides */
+#header-nav{
+  transition: all 0.5s ease;
+}
+
+#header-nav.fixed-top {
+  position: fixed;
+  background: #fff !important;
+  padding-top: 0.36em;
+  padding-bottom: 0.36em;
+}
+
+
+@include media-breakpoint-down(lg) { 
+  #header-nav.fixed-top {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .site-title {
+    font-size: 1.2rem;
+  }
+}
+
+/* Toggler Icon */
+.navbar-toggler {
+  border-radius: 5px;
+  border-width: 2px;
+  padding: 0.15rem 0.25rem;
+}
+
+/* Dropdown */
+.dropdown-toggle::after{
+  border: none!important;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Font Awesome 5 Free"; 
+  content: "\f107"!important;
+  vertical-align: top;
+  opacity: 0.6;
+ }
+
+.navbar-nav > .dropdown > .dropdown-menu {
+  opacity:0;
+  display: block;
+  visibility: hidden;
+  height: 0;
+  padding: 0;
+  top:80%; 
+  transform: rotateX(-75deg);
+  transform-origin: 0% 0%;
+}
+
+@include media-breakpoint-down(lg) { 
+  .dropdown-menu.show {
+    height: auto!important;
+    visibility: visible!important;
+    opacity: 1!important;
+    padding: 0.6rem 0!important;
+    transition: .3s ease-in-out!important;
+    top:100%; transform: rotateX(0deg)!important;
+    margin-top: 0!important;
+  }
+}
+
+@include media-breakpoint-up(lg) { 
+  .navbar-nav > .dropdown:hover > .dropdown-menu {
+    height: auto;
+    visibility: visible;
+    opacity: 1;
+    padding: 0.6rem 0;
+    transition: .3s ease-in-out;
+    top:100%; 
+    transform: rotateX(0deg);
+    margin-top: 0;
+  }
+}
+
+.dropdown-item {
+  transition: .1s ease-in-out;
+}
+
+/* Dropdown Submenu */
+.submenu .submenu-icon {    
+  opacity: 0.6;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  font-size: 11px;
+  vertical-align: middle;
+  margin-left: 0.3rem;
+}
+
+@include media-breakpoint-up(lg) { 
+	li.submenu { position: relative; 	}
+	.submenu .dropdown-menu { 
+		display: block;
+		position: absolute;
+    visibility: hidden;
+    opacity:0;
+		left:90%; 
+    top:-7px !important;
+    transform: rotateY(-75deg);
+    transition: .3s ease-in-out;
+	}
+	.submenu:hover .dropdown-menu { 
+    visibility: visible;
+    opacity: 1;
+		left:100%; 
+    transition: .3s ease-in-out;
+    transform: rotateY(0deg);
+  }
+}	
+
+@include media-breakpoint-down(lg) { 
+  .submenu .dropdown-menu {
+		display: block;
+    margin: 0 1rem;
+    padding: 0 !important;
+    box-shadow: none !important;
+  }
+}	
