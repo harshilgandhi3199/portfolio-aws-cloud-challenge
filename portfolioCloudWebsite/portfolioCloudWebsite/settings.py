@@ -81,6 +81,20 @@ DATABASES = {
     }
 }
 
+# AWS config for static files
+# settings.py
+AWS_ACCESS_KEY_ID = 'AKIAQY72NI64KDBPO3V7'
+AWS_SECRET_ACCESS_KEY = 'qN7Bh82HjLMiEDroVtB+dFVEZ2OwCcGt5OdNQl1u'
+AWS_STORAGE_BUCKET_NAME = 'harshil-portfolio-website'
+AWS_S3_REGION_NAME = 'us-east-1'  # e.g., us-east-1
+AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3-website-{AWS_S3_REGION_NAME}.amazonaws.com'
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+}
+AWS_LOCATION = 'static'  # or any path you prefer within your bucket
+STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{AWS_LOCATION}/'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -115,6 +129,11 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
+import os
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATIC_URL = 'static/'
 
