@@ -66,7 +66,8 @@ class WorkExperience(models.Model):
     achievements = models.TextField()
 
 class PersonalInfo(models.Model):
-    name = models.CharField(max_length=100)
+    first_name = models.CharField(max_length=100, default='')
+    last_name = models.CharField(max_length=100, default='')
     title = models.CharField(max_length=100)
     age = models.IntegerField()
     career_obj = models.TextField()
