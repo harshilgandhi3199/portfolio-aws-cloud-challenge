@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-p7r__slk_7k@pe1*!ws!t9wn20ti1hcc2498!1c)&)unxoy7kc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://django-web-app.s3.amazonaws.com/portfolioCloudWebsite.zip']
 
 
 # Application definition
