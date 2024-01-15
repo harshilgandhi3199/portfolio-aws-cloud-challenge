@@ -1,15 +1,17 @@
 from django.shortcuts import render
-from .models import WorkExperience, PersonalInfo, Skill
+from .models import WorkExperience, PersonalInfo, Skill, Project
 
 # Create your views here.
 def home(request):
     work_exp = fetchWorkExperience()
     personal_info = fetchPersonalInfo()
     fetch_skills = fetchSkills()
+    projects = fetchProjects()
     context = {
         'work_exp': work_exp,
         'personal_info': personal_info,
         'skill_info': fetch_skills,
+        'projects': projects
     }
     return render(request, 'index.html', context=context)
 
@@ -35,4 +37,8 @@ def fetchSkills():
         'skills': skills
     }
     return skill_info
+
+def fetchProjects():
+    project_objects = Project.objects.all()
+    return project_objects
 
