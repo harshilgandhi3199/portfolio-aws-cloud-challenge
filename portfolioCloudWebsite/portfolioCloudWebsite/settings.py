@@ -25,7 +25,10 @@ SECRET_KEY = 'django-insecure-p7r__slk_7k@pe1*!ws!t9wn20ti1hcc2498!1c)&)unxoy7kc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://django-web-app.s3.amazonaws.com/portfolioCloudWebsite.zip']
+ALLOWED_HOSTS = ['https://django-web-app.s3.amazonaws.com/portfolioCloudWebsite.zip',
+                '127.0.0.1',
+                'django-env2.eba-jmmvywxp.us-east-1.elasticbeanstalk.com',
+                '172.31.19.118']
 
 
 # Application definition
@@ -133,9 +136,9 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = 'static'
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

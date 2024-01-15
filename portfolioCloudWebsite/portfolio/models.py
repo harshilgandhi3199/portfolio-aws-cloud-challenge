@@ -2,16 +2,17 @@ from django.db import models
 
 # Create your models here.
 class Skill(models.Model):
+    id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=100, unique=True)
     
     LEVELS= (
-        ('b', 'Beginner'),
-        ('i', 'Intermediate'),
-        ('a', 'Advanced')
+        ('Beginner', 'BEGINNER'),
+        ('Intermediate', 'INTERMEDIATE'),
+        ('Advenced', 'ADVANCED')
     )
 
     level = models.CharField(
-        max_length = 1,
+        max_length = 100,
         choices=LEVELS,
         default='b'
     )
@@ -27,6 +28,8 @@ class Skill(models.Model):
         max_length = 1,
         choices=TYPES,
     )
+
+    level_percentage = models.IntegerField(default=0)
 
     def __str__(self) -> str:
         return self.name
