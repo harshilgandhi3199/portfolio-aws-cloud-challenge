@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['https://django-web-app.s3.amazonaws.com/portfolioCloudWebsite.zip',
                 '127.0.0.1',
-                'django-env2.eba-jmmvywxp.us-east-1.elasticbeanstalk.com',
+                'django-web-app-dev.us-east-1.elasticbeanstalk.com',
                 '172.31.19.118']
 
 
