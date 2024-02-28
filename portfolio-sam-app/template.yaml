@@ -1,4 +1,4 @@
-AWSTemplateFormatVersion: '2010-09-09'
+AWSTemplateFormatVersion: "2010-09-09"
 Transform: AWS::Serverless-2016-10-31
 Description: >
   portfolio-sam-app
@@ -22,19 +22,20 @@ Resources:
       Handler: app.lambda_handler
       Environment:
         Variables:
-          TABLE_NAME: !Select [1, !Split ['/', !GetAtt WebsiteDynamoDBTable.Arn]]
+          TABLE_NAME:
+            !Select [1, !Split ["/", !GetAtt WebsiteDynamoDBTable.Arn]]
       Runtime: python3.9
       Architectures:
-      - x86_64
+        - x86_64
       Policies:
-      - Statement:
-        - Sid: DynamoDBCrudPolicy
-          Effect: Allow
-          Action:
-          - dynamodb:GetItem
-          - dynamodb:PutItem
-          - dynamodb:UpdateItem
-          Resource: '*'
+        - Statement:
+            - Sid: DynamoDBCrudPolicy
+              Effect: Allow
+              Action:
+                - dynamodb:GetItem
+                - dynamodb:PutItem
+                - dynamodb:UpdateItem
+              Resource: "*"
       Events:
         HelloWorld:
           Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
@@ -44,14 +45,14 @@ Resources:
 
   WebsiteDynamoDBTable:
     Type: AWS::DynamoDB::Table
-    Properties: 
-      AttributeDefinitions: 
+    Properties:
+      AttributeDefinitions:
         - AttributeName: visits
           AttributeType: S
-      KeySchema: 
+      KeySchema:
         - AttributeName: visits
           KeyType: HASH
-      ProvisionedThroughput: 
+      ProvisionedThroughput:
         ReadCapacityUnits: 5
         WriteCapacityUnits: 5
       StreamSpecification:

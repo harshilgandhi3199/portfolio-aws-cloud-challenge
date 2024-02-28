@@ -47,7 +47,7 @@ def lambda_handler(event, context):
             ConditionExpression='attribute_not_exists(visits) OR footfall >= :zero'
         )
         count = response['Attributes']['footfall']
-        print('Update successful')
+        print('Update was successful')
         print('Count: ' + str(count))
         return {
             'statusCode': 200,
