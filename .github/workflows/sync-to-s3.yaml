@@ -17,4 +17,4 @@ jobs:
           aws-region: us-east-1
       - name: Sync files to S3 bucket
         run: |
-          aws s3 sync build s3://portfolio-static-website-s3 --delete
+          aws s3 sync ./ s3://portfolio-static-website-s3 --delete
