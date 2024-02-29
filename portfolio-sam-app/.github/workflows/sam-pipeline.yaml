@@ -2,7 +2,7 @@ on:
   push:
     branches:
       - main
-      - w/o-django-app
+      - sam-app
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
