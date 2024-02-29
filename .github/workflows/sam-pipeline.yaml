@@ -20,4 +20,4 @@ jobs:
 # Run Unit tests- Specify unit tests here 
 
 # sam deploy
-      - run: sam deploy --no-confirm-changeset --no-fail-on-empty-changeset --s3-bucket aws-sam-cli-managed-default-samclisourcebucket-e7obgsjuaaae --capabilities CAPABILITY_IAM --region us-east-1 --guided
+      - run: sam deploy --guided
