@@ -20,4 +20,4 @@ jobs:
 # Run Unit tests- Specify unit tests here 
 
 # sam deploy
-      - run: sam deploy --stack-name portfolio-sam-app --resolve-s3 --confirm-changeset --debug
+      - run: sam deploy --stack-name portfolio-sam-app --no-confirm-changeset --no-fail-on-empty-changeset --resolve-s3  --debug
