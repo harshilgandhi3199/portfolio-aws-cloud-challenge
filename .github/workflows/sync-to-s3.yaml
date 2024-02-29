@@ -18,3 +18,13 @@ jobs:
       - name: Sync files to S3 bucket
         run: |
           aws s3 sync ./ s3://portfolio-static-website-s3 --delete
+  
+      - name: Get CloudFront distribution ID
+      id: cloudfront
+      run: |
+        DISTRIBUTION_ID=$(aws cloudfront list-distributions --query "DistributionList.Items[0].Id" --output text)
+        echo "DISTRIBUTION_ID=${DISTRIBUTION_ID}" >> $GITHUB_ENV
+
+      - name: Create CloudFront cache invalidation
+        run: |
+          aws cloudfront create-invalidation --distribution-id ${{ env.DISTRIBUTION_ID }} --paths "/*"
